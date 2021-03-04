@@ -7,7 +7,7 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      mode:'m1',
+      mode:'m3',
       m1:{con:'실험용 사이트 본문1'},
       m2:{con:'실험용 사이트 본문2'},
       m3:{con:'실험용 사이트 본문3'},
@@ -27,8 +27,12 @@ class App extends Component{
     let _con = null;
     if(this.state.mode == 'm1'){
       _con = this.state.m1.con; 
-    }else{
+    }else  if(this.state.mode == 'm2'){
       _con = this.state.m2.con; 
+    }else  if(this.state.mode == 'm3'){
+      _con = this.state.m3.con; 
+    }else  if(this.state.mode == 'm4'){
+      _con = this.state.m4.con; 
     }
 
     return (
