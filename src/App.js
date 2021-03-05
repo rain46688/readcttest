@@ -32,46 +32,50 @@ class App extends Component{
       _con = this.state.menus[3].con; 
     }
 //=========================================
-    function menuClick(e) {
-      //console.log(e.target.innerText);
-      //alert(e.target.innerText);
-      e.preventDefault();
+    function menuClick(ee) {
+      console.log('menuClick 실행');
+      console.log(ee);
       let menu = null;
-      if(e.target.innerText == '메뉴1'){
+      if(ee == '메뉴1'){
         menu = 'm1'
-      }else if(e.target.innerText == '메뉴2'){
+      }else if(ee == '메뉴2'){
         menu = 'm2'
-      }else if(e.target.innerText == '메뉴3'){
+      }else if(ee == '메뉴3'){
         menu = 'm3'
-      }else if(e.target.innerText == '메뉴4'){
+      }else if(ee == '메뉴4'){
         menu = 'm4'
       }
+      //주입된 this값으로 state를 변경시켜줌
+      //setState 이걸 이용해서 바꿔줘야된다!
       this.setState({
         mode: menu
       });
     }
-    let lists = [];
-    //let data = this.props.data;
-    let data = this.state.menus;
-    let i = 0;
-    while(i < data.length){
-    lists.push(<li key={data[i].id}><a href="#" onClick={menuClick.bind(this)}>{data[i].title}</a></li>);
-      i = i + 1;
-    }
+    // let lists = [];
+    // //let data = this.props.data;
+    // let data = this.state.menus;
+    // let i = 0;
+    // while(i < data.length){
+    // lists.push(<li key={data[i].id}><a href="#" onClick={menuClick.bind(this)}>{data[i].title}</a></li>);
+    //   //bind를 이용해서 this값을 주입해줌 
+    //   i = i + 1;
+    // }
 //=========================================
     return (
       <div className="App">
-        {/* <Header data={this.state.menus}></Header> */}
+        <Header data={this.state.menus}
+        onChangePage={menuClick.bind(this)}></Header>
 
-        <header> 
+        {/* <header> 
           <div id="title"><h1>리액트 실험 사이트</h1></div>
           <div id="menu1">
           <ul>
               {lists}
-              {/* App.js에서 메뉴 숫자를 변경하면 바로 메뉴의 숫자가 변경됨 */}
           </ul>
         </div>
-        </header>
+        </header> */}
+
+      {/* App.js에서 메뉴 숫자를 변경하면 바로 메뉴의 숫자가 변경됨 */}
 
         <Content con={_con}></Content>
         //다른 파일에서 html을 가져와서 뿌려줌
