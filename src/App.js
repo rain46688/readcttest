@@ -19,7 +19,6 @@ class App extends Component{
   //랜더가 실행되기 전에 먼저 실행되는 constructor
   //props나 state가 바뀌면 해당되는 component의 render함수가 실행되서
   //다시 화면이 그려지게된다.
-  //zzz
   render(){ 
     let _con = null;
     if(this.state.mode == 'm1'){
@@ -33,8 +32,9 @@ class App extends Component{
     }
 //=========================================
     function menuClick(ee) {
-      console.log('menuClick 실행');
+      console.log('App의 menuClick 실행');
       console.log(ee);
+      //클릭된 메뉴 이름을 받아서 맞게 menu 변수를 변경해줌
       let menu = null;
       if(ee == '메뉴1'){
         menu = 'm1'
@@ -51,29 +51,11 @@ class App extends Component{
         mode: menu
       });
     }
-    // let lists = [];
-    // //let data = this.props.data;
-    // let data = this.state.menus;
-    // let i = 0;
-    // while(i < data.length){
-    // lists.push(<li key={data[i].id}><a href="#" onClick={menuClick.bind(this)}>{data[i].title}</a></li>);
-    //   //bind를 이용해서 this값을 주입해줌 
-    //   i = i + 1;
-    // }
 //=========================================
     return (
       <div className="App">
         <Header data={this.state.menus}
         onChangePage={menuClick.bind(this)}></Header>
-
-        {/* <header> 
-          <div id="title"><h1>리액트 실험 사이트</h1></div>
-          <div id="menu1">
-          <ul>
-              {lists}
-          </ul>
-        </div>
-        </header> */}
 
       {/* App.js에서 메뉴 숫자를 변경하면 바로 메뉴의 숫자가 변경됨 */}
 
