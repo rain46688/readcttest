@@ -5,7 +5,7 @@ class Content extends Component{
     render(){ 
       return (
        <div id="contents">
-         {this.props.con}
+         메뉴1 본문 페이지
        </div>
         );
     }
