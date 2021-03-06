@@ -36,13 +36,13 @@ class App extends Component{
       console.log(ee);
       //클릭된 메뉴 이름을 받아서 맞게 menu 변수를 변경해줌
       let menu = null;
-      if(ee == '메뉴1'){
+      if(ee === '메뉴1'){
         menu = 'm1'
-      }else if(ee == '메뉴2'){
+      }else if(ee === '메뉴2'){
         menu = 'm2'
-      }else if(ee == '메뉴3'){
+      }else if(ee === '메뉴3'){
         menu = 'm3'
-      }else if(ee == '메뉴4'){
+      }else if(ee === '메뉴4'){
         menu = 'm4'
       }
       //주입된 this값으로 state를 변경시켜줌 
@@ -53,7 +53,7 @@ class App extends Component{
     }
 //=========================================
 
-if(this.state.mode == 'm1'){
+if(this.state.mode === 'm1'){
     return (
       <div className="App">
         <Header data={this.state.menus}
@@ -62,7 +62,7 @@ if(this.state.mode == 'm1'){
         //다른 파일에서 html을 가져와서 뿌려줌
     </div>
     );
-    }else if(this.state.mode == 'm2'){
+    }else if(this.state.mode === 'm2'){
       return (
         <div className="App">
           <Header data={this.state.menus}
@@ -70,7 +70,7 @@ if(this.state.mode == 'm1'){
           <div id="contents">메뉴2 본문 페이지</div> 
       </div>
       );
-    }else if(this.state.mode == 'm3'){
+    }else if(this.state.mode === 'm3'){
       return (
         <div className="App">
           <Header data={this.state.menus}
@@ -78,7 +78,7 @@ if(this.state.mode == 'm1'){
           <div id="contents">메뉴3 본문 페이지</div> 
       </div>
       );
-    }else if(this.state.mode == 'm4'){
+    }else if(this.state.mode === 'm4'){
       return (
         <div className="App">
           <Header data={this.state.menus}
